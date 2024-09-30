@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <link href="index.css" rel="StyleSheet" type="text/css" />
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogi</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="index.html"><img src="resources/logo.webp" alt="Logo"></a>
+        <ul>
+            <li><a href="index.html">Koti</a></li>
+            <li><a href="info.html">Bengalitietoutta</a></li>
+            <li><a href="kissat.html">Sasu & Miska</a></li>
+            <li><a href="blogi.html">Blogi</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+
+        <h1>Blogi</h1>
+         <p>
+            Tällä sivustolla pääset seuraamaan kissojeni arkea blogin muodossa &hearts;    
+        </p> 
+
+        <div class="blog-filter">
+            <label for="category-select">Valitse aihe:</label>
+            <select id="category-select" onchange="filterBlogs()">
+                <option value="all">kaikki</option>
+                <option value="ulkoilu">Ulkoilu</option>
+                <option value="pyöräily">pyöräily</option>
+            </select>
+        </div>
+
+        <div class="blog-container">
+            <div class="blog-entry" data-category="ulkoilu">
+                <h2>Maailmaa nuuhkuttelemassa</h2>
+                <p>Sasu ja Miska pääsivät talven jäljiltä pitkästä aikaa tutkimaan maailmaa turvallisesti valjaissa. Sasu ei ole ikinä ollut mikään seikkailija luonne vaan enemmän kiinnostaa perhosten ja muiden luonnon ihmeiden ihastelu, aika pian Sasu pyyhälsikin takaisin kotiin sisätiloihin herkkujen äärelle.
+                Miska sen sijaan lähti reippaalle kävelylle, jossa ihmiskaverikin sai juosta perässä, jotta pysyi mukana vauhdissa. Pääsi tällä reissulla vaanimistaitojakin opettelemaan kyyhkysten kiusoitellessa. Harjoitteluksi tilanne jäikin kun ihmisen mukaan ei ole hyvien tapojen mukaista saalistaa poloisia kyyhkyjä, mutta onpahan ylläpidetty taitoja. 
+                Jännittäviä hetkiä koettiin myös pusikon äärellä, kun jokin rapisi ja loikki pusikon siimeksessä. Ihminen pelästyi otusta käärmeeksi ja nappasi Miskan mukanaan turvaan. Vaikka sammakkohan se vain taisi olla.
+                Lenkkeily rupesikin jo riittämään ja Miska liittyi Sasun seuraan herkuttelemaan.
+                </p>
+
+             <div class="blog-images">
+                <img src="resources/ulkoileva.jpg" alt="ulkoilu">
+                <img src="resources/ihmettelee.jpg" alt=" ihmettelee">
+             </div>
+           
+            
+            </div>
+
+            <div class="blog-entry" data-category="pyöräily">
+                <h2>Pyörällä vaikka maailman halki?</h2>
+                <p>Miskan yksistä ihan lemppari puuhista on kissanjuoksupyörässä lenkkeily. 
+                    Päivä alkaa usein reippaalla juoksu lenkillä niin, että vauhtiviivat vain vilisevät silmissä. 
+                    Vauhdin hurma on vallannut Miskan niin, että hän pitää pyörää omanaan eikä valitettavasti päästä Sasua pyörään laisinkaan. 
+                    Toisinaan illan hämärässä Sasu saattaa muutaman askeleen käydä ottamassa, mutta muistaa pyöräilyn olevan enemmän veljensä juttu. 
+                    Miskallehan pelkkä juokseminen yksinään ei riitä vaan koko tapahtuma vaatii tietenkin yleisön, kuka hullu sitä huomiotta esiintyisi ja näyttelisi taitojaan? Toisinaan yleisön paikalle kutsuminen vaatii kovaa komentamista...Joko ihmiset ei kuule tai kuvittelevat olevansa liian kiireisiä hetken jakamiseen (joka tapahtuu kyllä useita kertoja päivässä, mutta aina yhtä tärkeää, joten miten se voisi olla liikaa?) joka tapauksessa Miska huutaa siihen asti kunnes yleisö on paikalla ja päästään häntä ja ryhti suorana valloittamaan maailmaa juosten. 
+                    Tapahtuman tärkeimpiä kohtia ovat tietenkin suosion osoitukset ja kehut, joita satelee esitysten välissä ja tämä pistää kissan kehräämään ihan vallattomasti, välissä pieniä motivaatio rapsuja otetaan vastaan mielellään.
+                    Vaikka Miska viekin huomion niin Sasu usein tulee yleisöön katsomaan tapahtumaa.
+                    Kova hommaa tuo esiintyminen, mutta niin palkitsevaa. Tämän jälkeen maistuukin pienet nokoset ja taas ollaan valmiita uusiin valloituksiin. 
+                    
+                    
+                   </p>
+                <div class="blog-images">
+                    <img src="resources/misuu.jpg" alt="Miska">
+                    <img src="resources/juoksu.jpg" alt="pyöräily">
+                </div>
+                
+            </div>
+            
+            
+        </div>
+       
+    </div>
+
+    <script>
+    function filterBlogs() {
+        var select = document.getElementById("category-select");
+        var selectedCategory = select.value;
+        var entries = document.querySelectorAll(".blog-entry");
+
+        entries.forEach(function(entry) {
+            if(selectedCategory ==="all"|| entry.getAttribute("data-category") === selectedCategory) {
+                entry.style.display = "block";
+            
+            } else {
+                entry.style.display = "none";
+            }
+        });
+
+    }
+    </script>
+    
+        
+</body>
+</html>
